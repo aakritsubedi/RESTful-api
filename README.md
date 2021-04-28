@@ -46,3 +46,6 @@ Additional code can be downloaded to extend client functionality. However, this 
 ![RESTful API](./docs/images/RESTfulVenn.png)
 
 ____
+
+## REST API constraint 
+[Click here to read more about REST API constraint](./Constraints)
