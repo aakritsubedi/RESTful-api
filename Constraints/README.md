@@ -47,3 +47,28 @@ There are 4 guiding principles used for defining the contract between the client
 > Uniform Interface = Contract between client and server
 
 ___
+
+## Statelessness
+
+*"Client MUST manage its own state thus making the server stateless"*
+
+**Typical Web Application**
+![Typical Web Application](./../docs/images/typicalWebApp.png)  
+For every client that is connecting to the Web application, the Web application manages the state independently. This practice of managing the state in the server is not considered a good practice for building RESTful APIs.
+
+> The RESTful API server does not manage the state of the client. Each of the client connecting to the RESTful Apps server manages its own state.
+
+The management implementation is left to the client application and is not governed or defined by the REST API server.
+![Client Manage its own State](./../docs/images/clientManagesItsOwnState.png)
+
+The benefit of this approach is that it simplifies the implementation of the RESTful API. It allows the API server to easily scale horizontally and it reduces the resource need for the observer.
+
+The request received from the client applications or address clients are self-contained. And what that means is that server receives all of the state information that it needs for processing the client request.
+
+> Server receives state info from the client applications
+
+> Each request received by the server is treated as an independent request without regard to any previous request from the same client or from other clients.
+
+![Statelessness](./../docs/images/statelessness.png)
+
+___
