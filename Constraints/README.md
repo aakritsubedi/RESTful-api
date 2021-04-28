@@ -25,3 +25,25 @@ Another advantage of the decoupled architectural approach is that the client and
 - This architectural style is suggested as it leads to decoupling between the client.
 - The client side and the server side can change without impacting the other site as long as the uniform interface is maintained.
 - Another advantage is separation of concern.  A different set of concerns that they can manage independently, the client and the server can evolve over a period of time in an independent fashion.
+
+___
+
+## Uniform Interface
+
+*"Client and Server share a common Technical Interface"*
+  - interface  defines the contract between the client and the server
+  - technical implies that there is no business context for this contract.
+
+There are 4 guiding principles used for defining the contract between the client and the server and they are: 
+
+  - **Individual resources are identified in the Request (URI/URL)**  
+  - **Representation of the resources**  
+  may be used by the client to manipulate the resource state.
+  - **Self descriptive messages - metadata**  
+  the messages are self descriptive. There is metadata contained in the request and responses that can be used by the client and the server.
+  - **Hypermedia**  
+  server can only send back responses but hypermedia links that can be used by the client for further discovery of resources.
+
+> Uniform Interface = Contract between client and server
+
+___
