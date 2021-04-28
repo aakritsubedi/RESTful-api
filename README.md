@@ -49,3 +49,12 @@ ____
 
 ## REST API constraint 
 [Click here to read more about REST API constraint](./Constraints)
+
+## The advantage of REST for the development of an API
+
+The complete separation of the user interface from server and data storage offers some advantages for the development of an API. For example, it improves the portability of the interface to other types of platforms, increases project scalability and allows different components to be developed independently. Developers can easily migrate to other servers or make changes to the database, provided the data is sent correctly from each request. The separation thus increases overall flexibility in development.  
+
+A REST API is always independent of the type of platform or languages used, it adapts to the type of syntax or platform used. This provides great freedom when changing or testing new environments within a development. You can use PHP, Java, Python or Node.js servers with a REST API. Only responses to requests must be in the language used for information exchange, usually XML or JSON.
+
+> One disadvantage of REST APIs is the lack of standardization, which can lead to misunderstandings.
+
