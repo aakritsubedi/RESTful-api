@@ -119,3 +119,31 @@ Caching Control Directives
 > Server controls caching behavior on client via Cache Directives. For REST/HTTP these cache directives are specified by way of HTTP headers i.e `Cache-Control`. There are additional headers related to the caching behavior `expires`, `last modified` and `ETag`.
 
 ___
+
+## Layered System
+
+The Gateway is aware of only the REST API server and the server is aware of only the database layer. Each of these layers have a unique directional dependency on the layer next to it.  The
+
+Now let's say for a specific API, the load on the server has increased to a higher level and there is a need to scale the API.  
+
+**How to do that?**  
+
+You may add a load balancer, which is a new layer between the Gateway and the rest API server, and then increase the number of IPS servers to carry out horizontal scaling.
+But this approach, we have added a new layer and we have updated an existing layer. And we did all of this without impacting the risk line because the risk line is dependent only on the gateway. One important role to keep in mind regarding the layered architecture is that a layer can only connect with the layer that it is dependent on. It cannot bypass its dependencies and reach out to other leaders.  
+
+![Layered System](./../docs/images/layeredSys.png)  
+
+
+For example, the gateway cannot bypass the load balancer and reach out directly to an instance of the REST API server. This is technically feasible, but it is not the right practice as it will render the layered architecture useless in this case. 
+
+**Advantage of Layered Architecture**  
+
+- Layering simplifies the architecture due to reduced dependencies.
+- The architecture may evolve with changing needs
+- Layer changes at most impacts ONLY one other layer
+
+![Layered Arch](./../docs/images/layeredArch.png)  
+
+This constraint suggests that one should build the API using the layered architecture approach. Each layer is dependent only on one layer and the dependency is unidirectional. This approach simplifies the architecture and makes it easy to manage changes in the various layers.
+
+___
