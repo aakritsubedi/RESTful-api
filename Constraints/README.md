@@ -147,3 +147,9 @@ For example, the gateway cannot bypass the load balancer and reach out directly 
 This constraint suggests that one should build the API using the layered architecture approach. Each layer is dependent only on one layer and the dependency is unidirectional. This approach simplifies the architecture and makes it easy to manage changes in the various layers.
 
 ___
+
+## Code on Demand 
+
+*"Server can extend the functionality of client by sending code"*
+
+> This is an optional constraint.
