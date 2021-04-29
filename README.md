@@ -48,6 +48,14 @@ Additional code can be downloaded to extend client functionality. However, this 
 ____
 
 ## REST API constraint 
+The following are the REST API constraints: 
+  - Client-Server
+  - Uniform Interface
+  - Statelessness
+  - Caching
+  - Layered System
+  - Code On Demand
+
 [Click here to read more about REST API constraint](./Constraints)
 
 ## The advantage of REST for the development of an API
