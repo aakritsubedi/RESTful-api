@@ -72,3 +72,50 @@ The request received from the client applications or address clients are self-co
 ![Statelessness](./../docs/images/statelessness.png)
 
 ___
+
+## Caching
+
+The API client is responsible for managing its own state. This architectural pattern has some challenges.  
+
+The first challenges that it can lead to increased chattiness of the application. In other words, the application may have to make multiple calls to the rest of the server to get the resource representation the size of the request data sent by the client to the server will increase as a result of the fact that the client has to send the state data along with the request data. And overall, the performance of the application may be great because of the increased chattiness and the size of data being sent from the client today.
+
+The caching constraint suggest *"Use Caching to achieve higher Scalability and Performance"* of the REST application and server.  
+
+Caching counterbalances the negative effect of the stateless server implementation. 
+
+![Caching Opportunity](./../docs/images/cachingOpp.png)  
+
+There are multiple points within the apartment which can take advantage of caching. The developer of the API may decide to put caching in front of the database. By doing so, the developer can get better performance. From the database perspective, developer can create a local cache within the server to cache the data from the database and also to cache the responses that it'll send to the rest.These caches are in control of the API designer or develop an application using the rest client can also cache the responses locally. This way, the application can avoid making calls to the API server and use the data from the local cache or the application level. Caching will lead to better performance of the application and higher scalability for the apps server between the application and the API. 
+
+So there are various intermediate devices such as proxies and gateways. These proxies and gateways also have caches built into them, and these caches can further improve the performance and reduce the complexity of the client and server. From caching perspective, the developer of the API does not have full control on how the caching is carried out by the application and the intermediaries.
+
+> Server should specify Cache-Control Directives in response to control Caching behavior
+
+The API server can send cache control directives in the responses to control the caching behavior on applications and the intermediaries. 
+
+> Not all responses can be cached. For example, stock prices. The server should mark those responses explicitly as the **non-cacheable response**
+
+Cache-Control directives are specified in HTTP headers in Response. The HTTP header `Cache-Control` is used to define the cache policies. 
+
+> `Cache-Control`  HTTP Header for defining cache policies. The value in the Cache-Control consists of multiple directives which are separated by commas. Some directives have an optional argument.
+
+```shell
+Eg: cache-control: public, max-age=6400
+```
+
+Caching Control Directives
+- `No-Store` Responses aren't allowed to be cached
+- `Private` Cache ONLY on user device
+- `Public` Resource may be cached by any cache
+- `Max-Age` Time in seconds for cache expiry
+
+Caching Control Directives
+- `Expires` Set exact Date/Time in GMT when the resource will get expired
+- `Last-Modified` Set Date/Time when the resource was last changed
+- `ETag` Unique identifier associated with a response
+
+> Caching is used for Scalability and Performance  
+
+> Server controls caching behavior on client via Cache Directives. For REST/HTTP these cache directives are specified by way of HTTP headers i.e `Cache-Control`. There are additional headers related to the caching behavior `expires`, `last modified` and `ETag`.
+
+___
