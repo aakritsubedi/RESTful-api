@@ -153,3 +153,21 @@ ___
 *"Server can extend the functionality of client by sending code"*
 
 > This is an optional constraint.
+
+___
+
+## Richardson Maturaty Model (RMM)
+- A measure of RESTfullness
+
+There are four levels in this model and the architecture is evaluated to check out its level.
+
+![RMM Level](./../docs/images/RMMLevel.png)
+
+If the architecture is at level zero, then it is considered to be not in compliance with the best practices, whereas the highest level is level three within the architecture qualifies to be considered as fully compliant, restful architecture.
+
+![RMM Level](./../docs/images/RMMLevelDef.png)
+
+- `Level 0` in which the report procedure calls that is, RBC is implemented by way of ETP and XML.
+- `Level 1` The architecture is set to be at level one if it is exposing domain objects as resources by way of well-defined.
+- `Level 2` If the operations for the resources are exposed by a common endpoint and appropriate HTTP verbs like GET, POST, PUT and DELETE are in use.
+- `Level 3` If the server is not only sending back the resource state or data, it is also sending back the links that the client can use.
